@@ -36,6 +36,7 @@ Route::resource('transaksi','TransaksiController');
 
 Route::get('anggota/edit/{id}', 'AnggotaController@edit');
 
+Route::post('anggota/update/{id}', 'AnggotaController@update');
 
 Route::get('transaksi/edit/{id}', 'TransaksiController@edit');
 

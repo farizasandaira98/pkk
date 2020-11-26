@@ -121,7 +121,7 @@ Tambah Anggota</a>
 <td>
 
 
-<a href="anggota/edit/{{ $ang->id }}" class="badge badge-warning">Edit</a>
+<a href="anggota/edit/{{ $ang->id_anggota }}" class="badge badge-warning">Edit</a>
 
 
 <a href="" class="badge badge-danger">Hapus</a>

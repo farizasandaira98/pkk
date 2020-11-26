@@ -6,8 +6,6 @@
 
 @section('content')
 
-@foreach ($anggota as $ang)
-
 
 <div class="container">
 
@@ -21,7 +19,7 @@
 <hr class="my-4">     
 
 
-<form action="anggota/update/{{ $ang->id }}" method="POST">
+<form action="anggota/update/{{$anggota->id_anggota}}" method="POST">
 
 
 @csrf
@@ -40,7 +38,7 @@
                     name="nama_anggota" placeholder="Nama Anggota" 
 
 
-                    value="{{ $ang->nama_anggota }}">
+                    value="{{ $anggota->nama_anggota }}">
 
 
 </div>
@@ -58,7 +56,7 @@
                     name="alamat" placeholder="Alamat Anggota" 
 
 
-                    value="{{ $ang->alamat }}">
+                    value="{{ $anggota->alamat }}">
 
 
 </div>
@@ -73,7 +71,7 @@
 <select class="form-control" id="jenis_kelamin" 
 
 
-                    name="jenis_kelamin" value="{{$ang->jenis_kelamin}}">
+                    name="jenis_kelamin" value="{{$anggota->jenis_kelamin}}">
 
 
 <option value="laki-laki">Laki-laki</option>
@@ -100,7 +98,7 @@
                     name="email" aria-describedby="emailHelp" 
 
 
-                    placeholder="Enter email" value="{{ $ang->email }}">
+                    placeholder="Enter email" value="{{ $anggota->email }}">
 
 
 </div>
@@ -118,12 +116,10 @@
                     name="no_telp" placeholder="NO. HP" 
 
 
-                    value="{{ $ang->no_telp }}">
+                    value="{{ $anggota->no_telp }}">
 
 
 </div>
-
-@endforeach
 
 <button type="submit" class="btn btn-primary">Simpan</button>
 

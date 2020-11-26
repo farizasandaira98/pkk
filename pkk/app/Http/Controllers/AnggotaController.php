@@ -37,6 +37,11 @@ class AnggotaController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+         'nama_anggota' => 'required',
+         'jenis_kelamin' => 'required',
+         'alamat' => 'required'
+     ]);
         Anggota::create($request->all());
         
         return redirect('anggota')->with('msg','Data Berhasil di Simpan');
@@ -61,9 +66,8 @@ class AnggotaController extends Controller
      */
     public function edit($id)
     {
-        $anggota = Anggota::where('id',$id)->get();  
-        dd($anggota);
-        //return view('anggota.edit', ['anggota' => $anggota]);
+        $anggota = Anggota::where('id_anggota', $id)->first(); 
+        return view('anggota.edit', ['anggota' => $anggota]);
     }
 
     /**
@@ -75,8 +79,21 @@ class AnggotaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+       $this->validate($request,[
+         'nama_anggota' => 'required',
+         'jenis_kelamin' => 'required',
+         'alamat' => 'required'
+     ]);
+
+       $anggota = Anggota::where('id_anggota', $id)->first(); 
+       $anggota->nama_anggota = $request->nama_anggota;
+       $anggota->alamat = $request->alamat;
+       $anggota->jenis_kelamin = $request->jenis_kelamin;
+       $anggota->email = $request->email;
+       $anggota->no_telp = $request->no_telp;
+       $anggota->save();
+       return redirect('anggota')->with('msg','Data Berhasil di Edit');;
+   }
 
     /**
      * Remove the specified resource from storage.
